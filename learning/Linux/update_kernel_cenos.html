@@ -65,7 +65,7 @@ kernel-3.10.0-327.el7.x86_64
 kernel-tools-3.10.0-514.26.2.el7.x86_64
 kernel-headers-3.10.0-514.26.2.el7.x86_64
 kernel-3.10.0-514.26.2.el7.x86_64
-</pre><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ul><p>删除旧内核的 RPM 包</p><pre class="ql-syntax" spellcheck="false">yum remove kernel-tools-libs-3.10.0-514.26.2.el7.x86_64 kernel-3.10.0-327.el7.x86_64 kernel-tools-3.10.0-514.26.2.el7.x86_64 kernel-headers-3.10.0-514.26.2.el7.x86_64 kernel-3.10.0-514.26.2.el7.x86_64
+</pre><p><br></p><p>删除旧内核的 RPM 包</p><pre class="ql-syntax" spellcheck="false">yum remove kernel-tools-libs-3.10.0-514.26.2.el7.x86_64 kernel-3.10.0-327.el7.x86_64 kernel-tools-3.10.0-514.26.2.el7.x86_64 kernel-headers-3.10.0-514.26.2.el7.x86_64 kernel-3.10.0-514.26.2.el7.x86_64
 </pre><ul><li>1</li></ul><p><br></p><p><img src="https://img-blog.csdn.net/20180228164248312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQva2lrYWphY2s=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="删除旧内核"></p><h2>6.2 通过&nbsp;<code>yum-utils</code>&nbsp;工具</h2><p>如果安装的内核不多于 3 个，<code>yum-utils</code>&nbsp;工具不会删除任何一个。只有在安装的内核大于 3 个时，才会自动删除旧内核。</p><h3>6.2.1 安装</h3><pre class="ql-syntax" spellcheck="false">yum install yum-utils
 </pre><ul><li>1</li></ul><p><br></p><h3>6.2.2 删除</h3><pre class="ql-syntax" spellcheck="false">package-cleanup --oldkernels
 </pre><p><br></p>
