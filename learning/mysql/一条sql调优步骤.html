@@ -1,6 +1,6 @@
-<p>1.找出当前那些sql运行慢的语句</p><pre class="ql-syntax" spellcheck="false">select concat('kill ', id, ';')
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-c672802d-071d-4b4e-90a3-ae6273d7c47f"></attachment><p>1.找出当前那些sql运行慢的语句</p><pre class="ql-syntax" spellcheck="false">select concat('kill ', id, ';')
 from information_schema.processlist
 where command != 'Sleep'
 and time &gt; 2*60
 order by time desc 
-</pre><p><br></p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-c672802d-071d-4b4e-90a3-ae6273d7c47f"></attachment><p><br></p><p><br></p>
+</pre><p><br></p><p><br></p>
