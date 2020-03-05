@@ -22,6 +22,4 @@ Redis 将所有数据放在内存中，非数据同步正常工作时，是不�
 非阻塞多路 I/O 复用机制
 I/O 多路复用实际上是指多个连接的管理可以在同一进程。多路是指网络连接，复用只是同一个线程。在网络服务中，I/O 多路复用起的作用是一次性把多个连接的事件通知业务代码处理，处理的方式由业务代码来决定，该方法就会返回可读 / 写的 FD 个数。
 Redis 使用 epoll 作为 I/O 多路复用技术的实现，再加上 Redis 自身的事件处理模型将 epoll 的 read、write、close 等都转换成事件，不在网络 I/O 上浪费过多的时间，从而实现对多个 FD 读写的监控，提高性能。
-————————————————
-版权声明：本文为CSDN博主「写代码的小森森」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/Willson_L/article/details/89478286</p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-66e22eb2-23ca-406c-b558-0c1ae22568a8"></attachment><p><br></p>
+</p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-66e22eb2-23ca-406c-b558-0c1ae22568a8"></attachment><p><br></p>
