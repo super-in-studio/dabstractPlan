@@ -1,0 +1,1 @@
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-3f151ac4-b455-43a9-8a1a-3c4df8f43646"></attachment><p>Redis Cluster 采用虚拟哈希槽分区，所有的键根据哈希函数映射到 0 ~ 16383 整数槽内计算公式：slot = CRC16(key) &amp; 16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。Redis 虚拟槽分区的特点：解耦数据和节点之间的关系，简化了节点扩容和收缩难度。节点自身维护槽的映射关系，不需要客户端或者代理服务维护槽分区元数据支持节点、槽和键之间的映射查询，用于数据路由，在线集群伸缩等场景。</p><p><br></p>
