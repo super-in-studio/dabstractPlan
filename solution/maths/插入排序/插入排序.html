@@ -1,1 +1,23 @@
-<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-c7581869-f17e-4d65-bb0b-e54fdebd6226"></attachment><p>&nbsp;&nbsp;public static void main(String[] args) {</p><p>&nbsp;&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;int[] arrs={6,5,4,3,2,1} ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;sortArrs(arrs) ;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;for(int i=0;i&lt;arrs.length ;i++){</p><p>&nbsp;&nbsp;	&nbsp;&nbsp;System.out.println(arrs[i]);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;private static void sortArrs(int[] arrs){</p><p>&nbsp;&nbsp;	for(int i=1;i&lt;arrs.length ; i++){</p><p>&nbsp;&nbsp;		int j = i-1 ;</p><p>&nbsp;&nbsp;		int value = arrs[i] ;</p><p>&nbsp;&nbsp;		for(; j&gt;=0 ; j--){</p><p>&nbsp;&nbsp;			if(value &lt; arrs[j]){</p><p>&nbsp;&nbsp;				arrs[j+1] = arrs[j] ;</p><p>&nbsp;&nbsp;			}</p><p>&nbsp;&nbsp;		}</p><p>&nbsp;&nbsp;		arrs[j+1] = value ;</p><p>&nbsp;&nbsp;	}</p><p>&nbsp;&nbsp;}</p><p><br></p>
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-c7581869-f17e-4d65-bb0b-e54fdebd6226"></attachment><p>&nbsp;&nbsp;public static void main(String[] args) {
+&nbsp;&nbsp;	int[] arrs = {6,5,4,3,2,8,1} ;
+&nbsp;&nbsp;	sort(arrs) ;
+&nbsp;&nbsp;	for(int i=0 ; i&lt;arrs.length ; i++){
+&nbsp;&nbsp;		System.out.println(arrs[i]) ;
+&nbsp;&nbsp;	}
+&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;private static void sort(int[] arrs){
+&nbsp;&nbsp;	for(int i=1 ;i&lt;arrs.length ; i++){
+&nbsp;&nbsp;		int value=arrs[i] ;
+&nbsp;&nbsp;		int j = i-1 ;
+&nbsp;&nbsp;		for(;j&gt;=0;j--){
+&nbsp;&nbsp;			if(arrs[j] &gt; value){
+&nbsp;&nbsp;				arrs[j+1] = arrs[j] ;
+&nbsp;&nbsp;			}else{
+&nbsp;&nbsp;				break ;
+&nbsp;&nbsp;			}
+&nbsp;&nbsp;		}
+&nbsp;&nbsp;		arrs[j+1] = value ;
+&nbsp;&nbsp;		
+&nbsp;&nbsp;	}
+&nbsp;&nbsp;}}</p><p><br></p>
