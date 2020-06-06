@@ -1,1 +1,29 @@
-<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-7c307094-e167-43f2-aef8-aeb9a4ba802b"></attachment><p><br></p><p><br></p>
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-7c307094-e167-43f2-aef8-aeb9a4ba802b"></attachment><p><strong>ConcurrentLinkedQueue</strong></p><p><span style="color: rgb(75, 75, 75);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ConcurrentLinkedQueue是一个基于链接节点的无界线程安全队列，它采用先进先出的规则对节点进行排序，当我们添加一个元素的时候，它会添加到队列的尾部；当我们获取一个元素时，它会返回队列头部的元素。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;结构如下：</p><pre class="ql-syntax" spellcheck="false">
+public class ConcurrentLinkedQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;  
+
+        implements Queue&lt;E&gt;, java.io.Serializable {  
+
+    private transient volatile Node&lt;E&gt; head;//头指针  
+
+    private transient volatile Node&lt;E&gt; tail;//尾指针  
+
+    public ConcurrentLinkedQueue() {//初始化，head=tail=（一个空的头结点）  
+
+        head = tail = new Node&lt;E&gt;(null);  
+
+    }  
+
+    private static class Node&lt;E&gt; {  
+
+        volatile E item;  
+
+        volatile Node&lt;E&gt; next;//内部是使用单向链表实现  
+
+        ......  
+
+    }  
+
+    ......  
+
+}  
+</pre><p>&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入队和出队操作均利用CAS（compare and set）更新，这样允许多个线程并发执行，并且不会因为加锁而阻塞线程，使得并发性能更好。</p><p><br></p>
