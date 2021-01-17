@@ -20,4 +20,8 @@ sudo mkdir -p /var/log/mongodb
 sudo chown `whoami` /var/lib/mongo     # 设置权限
 sudo chown `whoami` /var/log/mongodb   # 设置权限
 </pre><p><br></p><p>接下来启动 Mongodb 服务：</p><p><br></p><pre class="ql-syntax" spellcheck="false">mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --fork
+</pre><p>打开 /var/log/mongodb/mongod.log 文件看到以下信息，说明启动成功。</p><p><br></p><pre class="ql-syntax" spellcheck="false"># tail -10f /var/log/mongodb/mongod.log
+2020-07-09T12:20:17.391+0800 I  NETWORK  [listener] Listening on /tmp/mongodb-27017.sock
+2020-07-09T12:20:17.392+0800 I  NETWORK  [listener] Listening on 127.0.0.1
+2020-07-09T12:20:17.392+0800 I  NETWORK  [listener] waiting for connections on port 27017
 </pre><p><br></p>
