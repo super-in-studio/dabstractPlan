@@ -15,4 +15,8 @@ export PATH=&lt;mongodb-install-directory&gt;/bin:$PATH
 &lt;mongodb-install-directory&gt;&nbsp;为你 MongoDB 的安装路径。如本文的&nbsp;/usr/local/mongodb4&nbsp;。
 export PATH=/usr/local/mongodb4/bin:$PATH
 
-</pre><p><br></p>
+</pre><h2>创建数据库目录</h2><p>默认情况下 MongoDB 启动后会初始化以下两个目录：</p><ul><li>数据存储目录：/var/lib/mongodb</li><li>日志文件目录：/var/log/mongodb</li></ul><p>我们在启动前可以先创建这两个目录并设置当前用户有读写权限：</p><p><br></p><pre class="ql-syntax" spellcheck="false">sudo mkdir -p /var/lib/mongo
+sudo mkdir -p /var/log/mongodb
+sudo chown `whoami` /var/lib/mongo     # 设置权限
+sudo chown `whoami` /var/log/mongodb   # 设置权限
+</pre><p><br></p><p><br></p>
