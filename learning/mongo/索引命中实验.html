@@ -25,7 +25,7 @@ db.order.createIndex({platformKey: 1},{name: "index_platformKey",background: tru
 
 db.order.createIndex({createTime:1,platformKey: 1,}, {background: true,name:"index_createTime_platformKey"})
 
-db.order.createIndex({storeId:1,platformKey: 1}, {background: true})
+db.order.createIndex({storeId:1,platformKey: 1}, {background: true,name:"index_storeId_platformKey"})
 
 
 
