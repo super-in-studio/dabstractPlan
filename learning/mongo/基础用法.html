@@ -1,4 +1,4 @@
-<h2>update() 方法</h2><p>update() 方法用于更新已存在的文档。语法格式如下：</p><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.update(
+<h2>update() 方法</h2><p>update() 方法用于更新已存在的文档。语法格式如下：</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.update(
    &lt;query&gt;,
    &lt;update&gt;,
    {
@@ -7,11 +7,34 @@
      writeConcern: &lt;document&gt;
    }
 )
-</pre><p><br></p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-47c1020c-a67b-4775-84c4-64d905fb27fa"></attachment><p><strong>参数说明：</strong></p><ul><li><strong>query&nbsp;</strong>: update的查询条件，类似sql update查询内where后面的。</li><li><strong>update&nbsp;</strong>: update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</li><li><strong>upsert&nbsp;</strong>: 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li><li><strong>multi&nbsp;</strong>: 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li><li><strong>writeConcern&nbsp;</strong>:可选，抛出异常的级别。</li></ul><p><br></p><p><br></p><h2>remove() 方法</h2><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.remove(
+</pre><p><br></p><attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-47c1020c-a67b-4775-84c4-64d905fb27fa"></attachment><p><strong>参数说明：</strong></p><p><br></p><ul><li><strong>query&nbsp;</strong>: update的查询条件，类似sql update查询内where后面的。</li><li><strong>update&nbsp;</strong>: update的对象和一些更新的操作符（如$,$inc...）等，也可以理解为sql update查询内set后面的</li><li><strong>upsert&nbsp;</strong>: 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li><li><strong>multi&nbsp;</strong>: 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li><li><strong>writeConcern&nbsp;</strong>:可选，抛出异常的级别。</li></ul><p><br></p><p><br></p><p><br></p><h2>remove() 方法</h2><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.remove(
    &lt;query&gt;,
    {
      justOne: &lt;boolean&gt;,
      writeConcern: &lt;document&gt;
    }
 )
-</pre><p><strong>参数说明：</strong></p><ul><li><strong>query&nbsp;</strong>:（可选）删除的文档的条件。</li><li><strong>justOne&nbsp;</strong>: （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档。</li><li><strong>writeConcern&nbsp;</strong>:（可选）抛出异常的级别。</li></ul><p><br></p>
+</pre><p><strong>参数说明：</strong></p><p><br></p><ul><li><strong>query&nbsp;</strong>:（可选）删除的文档的条件。</li><li><strong>justOne&nbsp;</strong>: （可选）如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档。</li><li><strong>writeConcern&nbsp;</strong>:（可选）抛出异常的级别。</li></ul><p><br></p><h1>MongoDB&nbsp;<span style="color: rgb(100, 133, 76);">插入文档</span></h1><p>本章节中我们将向大家介绍如何将数据插入到 MongoDB 的集合中。</p><p>文档的数据结构和 JSON 基本一样。</p><p>所有存储在集合中的数据都是 BSON 格式。</p><p>BSON 是一种类似 JSON 的二进制形式的存储格式，是 Binary JSON 的简称。</p><h2>插入文档</h2><p>MongoDB 使用 insert() 或 save() 方法向集合中插入文档，语法如下：</p><p><br></p><pre class="ql-syntax" spellcheck="false">db.COLLECTION_NAME.insert(document)
+或
+db.COLLECTION_NAME.save(document)
+</pre><ul><li>save()：如果 _id 主键存在则更新数据，如果不存在就插入数据。该方法新版本中已废弃，可以使用&nbsp;<strong>db.collection.insertOne()</strong>&nbsp;或&nbsp;<strong>db.collection.replaceOne()</strong>&nbsp;来代替。</li><li>insert(): 若插入的数据主键已经存在，则会抛&nbsp;<strong>org.springframework.dao.DuplicateKeyException</strong>&nbsp;异常，提示主键重复，不保存当前数据。</li></ul><p><strong>3.2 版本之后新增了 db.collection.insertOne() 和 db.collection.insertMany()。</strong></p><p>db.collection.insertOne() 用于向集合插入一个新文档，语法格式如下：</p><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.insertOne(
+   &lt;document&gt;,
+   {
+      writeConcern: &lt;document&gt;
+   }
+)
+</pre><p>db.collection.insertMany() 用于向集合插入一个多个文档，语法格式如下：</p><p><br></p><pre class="ql-syntax" spellcheck="false">db.collection.insertMany(
+   [ &lt;document 1&gt; , &lt;document 2&gt;, ... ],
+   {
+      writeConcern: &lt;document&gt;,
+      ordered: &lt;boolean&gt;
+   }
+)
+</pre><p>参数说明：</p><ul><li>document：要写入的文档。</li><li>writeConcern：写入策略，默认为 1，即要求确认写操作，0 是不要求。</li><li>ordered：指定是否按顺序写入，默认 true，按顺序写入。</li></ul><h3>实例</h3><p>以下文档可以存储在 MongoDB 的 runoob 数据库 的 col 集合中：</p><p><br></p><pre class="ql-syntax" spellcheck="false">&gt;db.col.insert({title: 'MongoDB 教程', 
+    description: 'MongoDB 是一个 Nosql 数据库',
+    by: '菜鸟教程',
+    url: 'http://www.runoob.com',
+    tags: ['mongodb', 'database', 'NoSQL'],
+    likes: 100
+})
+</pre><p><br></p><p><br></p>
