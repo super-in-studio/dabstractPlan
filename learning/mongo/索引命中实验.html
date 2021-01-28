@@ -17,8 +17,31 @@
     orderId: 3,
     storeId:1,
     createTime: "2021-01-03"
-}
+},
 ])
+
+db.order.insert([{
+    platformKey: "b", 
+    brandId: 1 ,
+    orderId: 1,
+    storeId:1,
+    createTime: "2021-01-01"
+},{
+    platformKey: "b", 
+    brandId: 1 ,
+    orderId: 2,
+    storeId:1,
+    createTime: "2021-01-02"
+},
+{
+    platformKey: "b", 
+    brandId: 1 ,
+    orderId: 3,
+    storeId:1,
+    createTime: "2021-01-03"
+},
+])
+
 
 #创建索引
 db.order.createIndex({platformKey: 1},{name: "index_platformKey",background: true})
