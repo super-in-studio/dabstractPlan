@@ -1,22 +1,24 @@
 <attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-1776d5de-9bb9-41ea-9165-ae19e20247c5"></attachment><ol><li>数据准备</li></ol><pre class="ql-syntax" spellcheck="false">db.order.insert([{
-    platformKey: 'a', 
+    platformKey: "a", 
     brandId: 1 ,
     orderId: 1,
     storeId:1,
     createTime: "2021-01-01"
 },{
-    platformKey: 'a', 
+    platformKey: "a", 
     brandId: 1 ,
     orderId: 2,
     storeId:1,
     createTime: "2021-01-02"
 },
 {
-    platformKey: 'a', 
+    platformKey: "a", 
     brandId: 1 ,
     orderId: 3,
     storeId:1,
     createTime: "2021-01-03"
 }
 ])
+
+db.values.createIndex({platformKey: 1}, {background: true})
 </pre><p><br></p>
