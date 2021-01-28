@@ -26,4 +26,4 @@ db.order.createIndex({platformKey: 1},{name: "index_platformKey",background: tru
 db.order.createIndex({createTime:1,platformKey: 1,}, {background: true,name:"index_createTime_platformKey"})
 
 db.order.createIndex({storeId:1,platformKey: 1}, {background: true,name:"index_storeId_platformKey"})
-</pre><p><br></p><p>（1）对比platformKey 和 createTime </p><p>db.order.find({platformKey:"a",createTime:{$gt:"2021-01-02"}})</p><p>命中 index_platformKey </p><p><br></p><p>db.order.find({createTime:{$gt:"2021-01-02",platformKey:"a"}})</p><p><br></p><p><br></p><p>(2)</p><p><br></p>
+</pre><p><br></p><p>（1）对比platformKey 和 createTime </p><p>db.order.find({platformKey:"a",createTime:{$gt:"2021-01-02"}})</p><p>命中 index_platformKey </p><p><br></p><p>db.order.find({createTime:{$gt:"2021-01-02"},platformKey:"a"})</p><p>命中 index_platformKey </p><p><br></p><p>db.order.find({createTime:{$gt:"2021-01-02"},platformKey:"a"})</p><p><br></p><p>(2)</p><p><br></p>
