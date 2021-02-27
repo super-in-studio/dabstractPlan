@@ -1,4 +1,4 @@
-<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-bec76826-a923-45d6-8d74-373f8c6941bf"></attachment><p>kubernetes.org.cn/7315.html</p><p><br></p><p>init 命令 创建master 节点</p><p><br></p><pre class="ql-syntax" spellcheck="false">kubeadm init \
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-bec76826-a923-45d6-8d74-373f8c6941bf"></attachment><p>kubernetes.org.cn/7315.html</p><p><br></p><p>init 命令 创建master 节点</p><p><br></p><p><br></p><pre class="ql-syntax" spellcheck="false">kubeadm init \
  --apiserver-advertise-address 0.0.0.0 \
  --apiserver-bind-port 6443 \
  --cert-dir /etc/kubernetes/pki \
@@ -8,4 +8,4 @@
  --service-cidr 192.168.20.0/16 \
  --service-dns-domain cluster.local \
  --upload-certs
-</pre><p><br></p><p><strong>重新创建token</strong></p><p>kubeadm token create --print-join-command</p><p>报错</p><p>W0227 06:48:11.287327&nbsp;&nbsp;5495 validation.go:28] Cannot validate kube-proxy config - no validator is available</p><p>W0227 06:48:11.287408&nbsp;&nbsp;5495 validation.go:28] Cannot validate kubelet config - no validator is available</p><p><br></p><p><br></p><p>init 错误</p><p>1.	[ERROR Port-10259]: Port 10259 is in use</p><p>	[ERROR Port-10257]: Port 10257 is in use</p><p><br></p><p><span style="color: rgb(77, 77, 77);">解决：kubeadm reset</span></p><p><br></p>
+</pre><p><br></p><p><strong>重新创建token</strong></p><p>kubeadm token create --print-join-command</p><p>报错</p><p>W0227 06:48:11.287327&nbsp;&nbsp;5495 validation.go:28] Cannot validate kube-proxy config - no validator is available</p><p>W0227 06:48:11.287408&nbsp;&nbsp;5495 validation.go:28] Cannot validate kubelet config - no validator is available</p><p><br></p><p><br></p><p>init 错误</p><p>1.	[ERROR Port-10259]: Port 10259 is in use</p><p>[ERROR Port-10257]: Port 10257 is in use</p><p><br></p><p><span style="color: rgb(77, 77, 77);">解决：kubeadm reset</span></p><p><br></p><p><span style="color: rgb(77, 77, 77);">2.docker </span></p><p><br></p>
